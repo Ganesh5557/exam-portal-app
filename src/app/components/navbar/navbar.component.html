@@ -1,0 +1,25 @@
+<div class="bootstrp-wrapper">
+    <div class="container">
+        <div class="row">
+            <mat-toolbar color="primary" class="tool">
+                <button matTooltip="Home" mat-icon-button class="example-icon"
+                    aria-label="Example icon-button with menu icon">
+                    <mat-icon>menu_books</mat-icon>
+
+
+                    <span style="font-size: large;" mat-icon routerLink="/">ExamPortal</span>
+                </button>
+                <span class="example-spacer"></span>
+
+                <a *ngIf="!isLoggedIn" routerLink="/login" mat-raised-button style="margin-right: 20px;"> Login </a>
+                <a *ngIf="!isLoggedIn" routerLink="/signup" mat-raised-button style="margin-right: 20px;"> Sign Up </a>
+
+                <a *ngIf="isLoggedIn" mat-raised-button style="margin-right: 20px;" routerLink="/admin/profile">
+                    {{loginSer.getUser().firstName}} </a>
+                <button *ngIf="isLoggedIn" (click)="logOut()" mat-raised-button style="margin-right: 20px;"> Logout
+                </button>
+
+            </mat-toolbar>
+        </div>
+    </div>
+</div>

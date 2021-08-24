@@ -1,0 +1,48 @@
+{{categoryModel | json}}
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+
+
+                <mat-card>
+                    <mat-card-header class="text-center">
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title class="text-center">Add New category</mat-card-title>
+
+
+                    </mat-card-header>
+
+                    <mat-card-content>
+                        <div class="container text-center">
+                            <form name="myForm" #myForm="ngForm" class="example-form" (ngSubmit)=formSubmit()>
+
+
+
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Category Title</mat-label>
+                                    <input matInput required name="title" [(ngModel)]="categoryModel.title">
+                                </mat-form-field>
+
+                                <mat-form-field class="example-full-width" appearance="fill">
+                                    <mat-label>Category Description </mat-label>
+                                    <input matInput required name="descr" [(ngModel)]="categoryModel.descr">
+                                </mat-form-field>
+
+
+
+                                <mat-card-actions class="text-center">
+                                    <button type="submit" [disabled]="!myForm.valid" mat-raised-button
+                                        color="primary">SUBMIT</button>
+                                    <button type="reset" mat-raised-button color="accent">CLEAR</button>
+                                </mat-card-actions>
+                            </form>
+                        </div>
+
+                    </mat-card-content>
+
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

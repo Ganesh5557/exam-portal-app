@@ -1,0 +1,109 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+
+                <!-- {{user | json}} -->
+                <mat-card>
+                    <mat-card-header class="text-center">
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title class="text-center">Sign Up</mat-card-title>
+
+
+                    </mat-card-header>
+                    <img mat-card-image class="signup_image"
+                        src="https://images.unsplash.com/photo-1509822929063-6b6cfc9b42f2?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bG9naW58ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                        alt="Photo of login Page">
+                    <mat-card-content>
+                        <div class="container text-center">
+                            <form name="myForm" #myForm="ngForm" class="example-form" (ngSubmit)=formSubmit()>
+
+
+                                <table class="example-full-width" cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            <mat-form-field class="example-full-width" appearance="fill">
+                                                <mat-label>First name</mat-label>
+                                                <input matInput required name="firstName" [(ngModel)]="user.firstName">
+                                            </mat-form-field>
+                                        </td>
+                                        <td>
+                                            <mat-form-field class="example-full-width" appearance="fill">
+                                                <mat-label>Last Name </mat-label>
+                                                <input matInput required name="lastName" [(ngModel)]="user.lastName">
+                                            </mat-form-field>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <p>
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>Email</mat-label>
+                                        <input type="email" matInput required name="email" [(ngModel)]="user.email"
+                                            [(ngModel)]="user.userName" email="true">
+                                    </mat-form-field>
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>Password</mat-label>
+                                        <input type="password" matInput required name="password"
+                                            [(ngModel)]="user.password">
+                                    </mat-form-field>
+
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>Address</mat-label>
+                                        <textarea matInput required placeholder="Ex. 100 Main St"></textarea>
+                                    </mat-form-field>
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>Address 2</mat-label>
+                                        <textarea matInput></textarea>
+                                    </mat-form-field>
+                                </p>
+
+                                <table class="example-full-width" cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            <mat-form-field class="example-full-width" appearance="fill">
+                                                <mat-label>City</mat-label>
+                                                <input matInput required placeholder="Ex. San Francisco">
+                                            </mat-form-field>
+                                        </td>
+                                        <td>
+                                            <mat-form-field class="example-full-width" appearance="fill">
+                                                <mat-label>State</mat-label>
+                                                <input matInput required placeholder="Ex. California">
+                                            </mat-form-field>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <mat-form-field class="example-full-width" appearance="fill">
+                                                <mat-label>Postal Code</mat-label>
+                                                <input matInput required #postalCode maxlength="5"
+                                                    placeholder="Ex. 94105">
+                                                <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                                            </mat-form-field>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <p>
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>Phone</mat-label>
+                                        <input matInput required maxlength="10" name="phone" [(ngModel)]="user.phone">
+                                    </mat-form-field>
+                                </p>
+                                <!-- <mat-card-actions class="text-center"> -->
+                                <button type="submit" [disabled]="!myForm.valid" mat-raised-button
+                                    color="primary">SUBMIT</button>
+                                <button type="reset" mat-raised-button color="accent">CLEAR</button>
+                                <!-- </mat-card-actions> -->
+                            </form>
+                        </div>
+
+                    </mat-card-content>
+
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="false"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'side' : 'side'"
+    [opened]="((isHandset$ | async) === false) && isLoggedIn ">
+    <mat-toolbar>Menu
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isLoggedIn">
+        <mat-icon aria-label="Side nav toggle icon">close</mat-icon>
+      </button>
+    </mat-toolbar>
+
+
+    <mat-nav-list>
+      <mat-action-list>
+        <mat-card>
+          <button mat-list-item routerLink="/admin">
+            <mat-icon> home</mat-icon> Home
+          </button>
+          <button mat-list-item routerLink="/admin/profile">
+            <mat-icon> person </mat-icon> Profile
+          </button>
+          <button mat-list-item routerLink="/admin/category">
+            <mat-icon> category</mat-icon> Category
+          </button>
+          <button mat-list-item routerLink="/admin/add-category">
+            <mat-icon> category</mat-icon> Add Category
+          </button>
+          <button mat-list-item routerLink="/admin/quiz">
+            <mat-icon> quiz</mat-icon> Quiz
+          </button>
+          <button mat-list-item routerLink="/admin/add-quiz">
+            <mat-icon> quiz</mat-icon> Add Quiz
+          </button>
+          <button mat-list-item (click)="logOut()">
+            <mat-icon> logout</mat-icon> Log Out
+          </button>
+        </mat-card>
+      </mat-action-list>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isLoggedIn">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <button matTooltip="Home" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu_books</mat-icon>
+
+
+        <span style="font-size: large;" mat-icon routerLink="/">ExamPortal</span>
+      </button>
+      <span class="example-spacer"></span>
+      <div *ngIf="(isHandset$ | async) === false">
+        <a *ngIf="!isLoggedIn" routerLink="/login" mat-raised-button style="margin-right: 20px;"> Login </a>
+        <a *ngIf="!isLoggedIn" routerLink="/signup" mat-raised-button style="margin-right: 20px;"> Sign Up </a>
+
+        <a *ngIf="isLoggedIn" mat-raised-button style=" margin-right: 20px;" routerLink="/admin/profile">
+          {{loginSer.getUser().firstName}} </a>
+      </div>
+      <button *ngIf="isLoggedIn" (click)="logOut()" mat-raised-button style="margin-right: 20px;"> Logout
+      </button>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <app-admin-dashboard></app-admin-dashboard>
+  </mat-sidenav-content>
+</mat-sidenav-container>

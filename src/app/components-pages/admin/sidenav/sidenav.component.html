@@ -1,0 +1,30 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'side' : 'side'" [opened]="(isHandset$ | async) === false">
+        <mat-toolbar>Menu</mat-toolbar>
+        <mat-nav-list>
+            <mat-action-list>
+                <mat-card>
+                    <button mat-list-item routerLink="/admin">
+                        <mat-icon> home</mat-icon> Home
+                    </button>
+                    <button mat-list-item routerLink="/admin/profile">
+                        <mat-icon> person </mat-icon> Profile
+                    </button>
+                    <button mat-list-item routerLink="/admin/category">
+                        <mat-icon> category</mat-icon> Category
+                    </button>
+                    <button mat-list-item routerLink="/admin/quiz">
+                        <mat-icon> quiz</mat-icon> Quiz
+                    </button>
+                    <button mat-list-item (click)="logOut()">
+                        <mat-icon> logout</mat-icon> Log Out
+                    </button>
+                </mat-card>
+            </mat-action-list>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

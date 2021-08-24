@@ -1,0 +1,60 @@
+<!-- <div class="container text-center">
+    <mat-card class="mt10">
+
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title value="category.title">{{category.title}}</mat-card-title>
+            <mat-card-subtitle>{{category.descr}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-actions class="text-center">
+            <button mat-raised-button color="primary">DONE</button>
+            <button [routerLink]="'/admin/category'" mat-raised-button color="accent">CANCEL</button>
+        </mat-card-actions>
+
+
+    </mat-card>
+</div> -->
+{{category | json}}
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+
+
+                <mat-card>
+
+
+                    <mat-card-content>
+                        <div class="container text-center">
+                            <form name="myForm" #myForm="ngForm" class="example-form" (ngSubmit)="formSubmit">
+
+
+
+                                <mat-form-field class="w100" appearance="fill">
+                                    <mat-label>Category Title</mat-label>
+                                    <input matInput required name="title" [(ngModel)]="category.title">
+                                </mat-form-field>
+
+                                <mat-form-field class="w100" appearance="fill">
+                                    <mat-label>Category Description </mat-label>
+                                    <input matInput required name="descr" [(ngModel)]="category.descr">
+                                </mat-form-field>
+
+
+
+                                <mat-card-actions class="text-center">
+                                    <button type="submit" [disabled]="!myForm.valid" mat-raised-button
+                                        color="primary">SUBMIT</button>
+                                    <button type="reset" mat-raised-button color="accent">CLEAR</button>
+                                </mat-card-actions>
+                            </form>
+                        </div>
+
+                    </mat-card-content>
+
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
